@@ -6,7 +6,18 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
+    colors: {
+      'bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
+      'bg-secondary': 'rgb(var(--bg-secondary) / <alpha-value>)',
+      'bg-peach': 'rgb(var(--bg-peach) / <alpha-value>)',
+      'bg-light-purple': 'rgb(var(--bg-light-purple) / <alpha-value>)',
+      'bg-purple': 'rgb(var(--bg-purple) / <alpha-value>)',
+      'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
+      'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+      'text-accent': 'rgb(var(--text-accent) / <alpha-value>)'
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
