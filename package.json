@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "dotenv -e .env.dev -- next dev",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "migrate-dev": "dotenv -e .env.dev -- npx prisma migrate dev"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "dotenv -e .env.dev -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/dev/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",
