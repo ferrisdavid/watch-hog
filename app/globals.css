@@ -2,19 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root.light {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 254, 253, 253;
+    --background-end-rgb: 255, 230, 230;
+
+    /* Custom Colors */
+    --bg-primary: 254 253 253;
+    --bg-secondary: 173 136 198;
+    --bg-peach: 225 175 209;
+    --bg-light-purple: 173 136 198;
+    --bg-purple: 116 105 182;
+
+    --text-primary: 1 1 1;
+    --text-secondary: 254 253 253;
+    --text-accent: 255 230 230;
+  }
+
+  :root.dark {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+    /* Custom Colors (Currently Same as Light) */
+    --bg-primary: 254 253 253;
+    --bg-secondary: 173 136 198;
+    --bg-peach: 225 175 209;
+    --bg-light-purple: 173 136 198;
+    --bg-purple: 116 105 182;
+
+    --text-primary: 1 1 1;
+    --text-secondary: 254 253 253;
+    --text-accent: 255 230 230;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
