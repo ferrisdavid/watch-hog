@@ -3,22 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e .env.dev -- next dev",
+    "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate-dev": "dotenv -e .env.dev -- npx prisma migrate dev"
+    "migrate-dev": "dotenv -e .env.local -- npx prisma migrate dev",
+    "reset-db": "dotenv -e .env.local -- npx prisma db push --force-reset && npx prisma db seed"
   },
   "prisma": {
-    "seed": "dotenv -e .env.dev -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/dev/seed.ts"
+    "seed": "dotenv -e .env.local -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/dev/seed.ts"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.8.1",
+    "@mantine/core": "^7.8.1",
+    "@mantine/hooks": "^7.8.1",
     "@prisma/client": "^5.10.2",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.1",
+    "embla-carousel-react": "^8.0.2",
     "next": "14.0.4",
+    "next-auth": "^5.0.0-beta.16",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.75.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -27,7 +34,9 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "postcss": "^8",
+    "postcss": "^8.4.38",
+    "postcss-preset-mantine": "^1.14.4",
+    "postcss-simple-vars": "^7.0.1",
     "prisma": "^5.10.2",
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.2",
