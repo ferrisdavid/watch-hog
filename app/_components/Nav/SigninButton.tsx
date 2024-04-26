@@ -16,10 +16,10 @@ export default function SigninButton({ isLoggedIn }: Props) {
     <form
       action={async () => {
         "use server";
-        await signIn("google");
+        await signIn("google", { redirectTo: '/explore' });
       }}
     >
-      <Button type="submit" className="bg-bg-primary text-text-secondary">Sign In</Button>
+      <Button type="submit" className="!bg-dark-purple !text-text-secondary !rounded-lg">LOGIN</Button>
     </form>
   );
 }

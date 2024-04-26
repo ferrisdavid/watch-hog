@@ -7,13 +7,13 @@ import { Avatar } from "@mantine/core";
 // Props.
 interface Props {
     isLoggedIn: boolean;
-    avatar: string;
+    avatar?: string | null;
   }
 
 export default function UserIcon({ isLoggedIn, avatar }: Props){
     if (!isLoggedIn) return <></>
 
     return (
-        <Avatar src={avatar} alt="user icon"/>
+        <Avatar className="hover:cursor-pointer border-2 border-bg-light-purple" src={avatar} size={48} alt="user icon"/>
     )
 }
