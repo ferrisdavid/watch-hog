@@ -1,6 +1,3 @@
-// Auth.
-import { auth } from "@/auth";
-
 // Mantine.
 import { Avatar } from "@mantine/core";
 
@@ -14,6 +11,6 @@ export default function UserIcon({ isLoggedIn, avatar }: Props){
     if (!isLoggedIn) return <></>
 
     return (
-        <Avatar className="hover:cursor-pointer border-2 border-bg-light-purple" src={avatar} size={48} alt="user icon"/>
+        <Avatar className="hover:cursor-pointer border-2 border-bg-peach/50" src={avatar} imageProps={{ referrerPolicy: "no-referrer" }} size={48} alt="user icon"/>
     )
 }
