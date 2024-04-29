@@ -17,7 +17,8 @@ const config: Config = {
       'dark-purple': 'rgb(var(--dark-purple) / <alpha-value>)',
       'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
       'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
-      'text-accent': 'rgb(var(--text-accent) / <alpha-value>)'
+      'text-accent': 'rgb(var(--text-accent) / <alpha-value>)',
+      'card-border': 'rgb(var(--card-border) / <alpha-value>)'
     },
     extend: {
       backgroundImage: {
