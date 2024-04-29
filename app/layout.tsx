@@ -13,6 +13,7 @@ import Navbar from "./_components/Nav/Navbar";
 // Styles.
 import { ColorSchemeScript } from "@mantine/core";
 import "@mantine/core/styles.css";
+import '@mantine/carousel/styles.css';
 import "./globals.css";
 
 export const metadata: Metadata = {
