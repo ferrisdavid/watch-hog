@@ -20,11 +20,12 @@
     "@prisma/client": "^5.10.2",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.1",
-    "embla-carousel-react": "^8.0.2",
+    "embla-carousel-react": "^7.1.0",
     "next": "14.0.4",
     "next-auth": "^5.0.0-beta.16",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.1.0",
     "sass": "^1.75.0"
   },
   "devDependencies": {
