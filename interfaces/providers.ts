@@ -1,0 +1,1 @@
+export type IProvider = "netflix" | "prime" | "disney";
