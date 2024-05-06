@@ -24,7 +24,7 @@ export default async function Navbar() {
     <header id="header" className="p-5">
       <nav className="flex grow justify-between items-center">
         <a href="/">
-          <div className={`${montserrat_alt.className} flex text-5xl text-dark-purple font-extrabold`}>WATCH  <Image src={Logo} width={50} quality={100} alt="watchog logo"/>  G</div>
+          <div className={`${montserrat_alt.className} flex text-5xl text-dark-purple font-extrabold`}>WATCH  <Image src={Logo} width={45} quality={100} alt="watchog logo" className="ml-1 mr-1"/>  G</div>
         </a>
        
 
