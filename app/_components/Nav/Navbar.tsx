@@ -23,18 +23,46 @@ export default async function Navbar() {
   return (
     <header id="header" className="p-5">
       <nav className="flex grow justify-between items-center">
-        <a href="/">
-          <div className={`${montserrat_alt.className} flex text-5xl text-dark-purple font-extrabold`}>WATCH  <Image src={Logo} width={45} quality={100} alt="watchog logo" className="ml-1 mr-1"/>  G</div>
-        </a>
-       
+        <div className="flex gap-10">
+          <a href="/">
+            <div
+              className={`${montserrat_alt.className} flex text-5xl text-dark-purple font-extrabold`}
+            >
+              WATCH{" "}
+              <Image
+                src={Logo}
+                width={45}
+                quality={100}
+                alt="watchog logo"
+                className="ml-1 mr-1"
+              />{" "}
+              G
+            </div>
+          </a>
+
+          <div className="flex font-semibold gap-5">
+            <NavLink
+              classNames={{ label: "!text-lg" }}
+              className="hover:!bg-transparent"
+              label="EXPLORE"
+              href="/explore"
+            />
+            <NavLink
+              classNames={{ label: "!text-lg" }}
+              className="hover:!bg-transparent"
+              label="FEED"
+              href="/feed"
+            />
+            <NavLink
+              classNames={{ label: "!text-lg" }}
+              className="hover:!bg-transparent"
+              label="SOCIAL"
+              href="/social"
+            />
+          </div>
+        </div>
 
         <div className="flex gap-12 text-dark-purple font-medium">
-          <div className="flex">
-            <NavLink classNames={{label: "!text-lg"}} label="EXPLORE" href="/explore"/>
-            <NavLink classNames={{label: "!text-lg"}} label="FEED" href="/feed" />
-            <NavLink classNames={{label: "!text-lg"}} label="SOCIAL" href="/social" />
-          </div>
-
           <SigninButton isLoggedIn={!!session?.user} />
 
           <ProfileDropdown username={session?.user?.name}>
