@@ -8,18 +8,24 @@ import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 import TrendingCarousel from "../_components/Trending/TrendingCarousel";
 import QuickExplorePill from "../_components/QuickExplore/QuickExplorePill";
+import MovieCarousel from "../_components/MovieCarousel/MovieCarousel";
+import ShowCarousel from "../_components/TVCarousel/ShowCarousel";
 
 // Data Fetch.
-import { getMovieGenreIDMap } from "../utils/get-movie-genres";
-import { getTrendingMovies } from "../utils/get-trending-movies";
+import { getMovieGenreIDMap } from "../utils/movies/get-movie-genres";
+import { getTrendingMovies } from "../utils/movies/get-trending-movies";
+import { getNowPlaying } from "../utils/movies/get-now-playing";
+import { getTopMovies } from "../utils/movies/get-top-movies";
+import { getTrendingTV } from "../utils/tv/get-trending-tv";
+import { getTopTV } from "../utils/tv/get-top-tv";
 
 // Assets.
 import GlassBackdrop from "@/public/assets/Backdrop.png";
 
 // Icons.
 import { BsFire } from "react-icons/bs";
-import { FiZap } from "react-icons/fi";
-import MovieCarousel from "../_components/MovieCarousel/MovieCarousel";
+import { RiMovie2Fill } from "react-icons/ri";
+import { FiAirplay, FiStar, FiTrendingUp, FiZap } from "react-icons/fi";
 
 export default async function Home() {
   // Persistent Movie Genre Data.
@@ -27,6 +33,18 @@ export default async function Home() {
 
   // Trending Movie Data.
   const trendingMovies = await getTrendingMovies();
+
+  // Now Playing Movies.
+  const nowPlaying = await getNowPlaying();
+
+  // Top Movies.
+  const topMovies = await getTopMovies();
+
+  // Trending TV
+  const trendingTV = await getTrendingTV();
+
+  // Top Rated TV
+  const topRatedShows = await getTopTV();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-5">
@@ -73,15 +91,46 @@ export default async function Home() {
         </section>
 
         <section
-          id="netflix"
+          id="now-playing"
           className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
         >
-          <MovieCarousel movies={trendingMovies.results} />
+          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
+            <RiMovie2Fill className="fill-dark-purple" />
+            <h1>Now Playing</h1>
+          </header>
+
+          <MovieCarousel movies={nowPlaying.results} />
         </section>
 
-        <section id="prime"></section>
+        <section
+          id="top-rated"
+          className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
+        >
+          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
+            <FiStar className="fill-dark-purple" />
+            <h1>Top Movies</h1>
+          </header>
 
-        <section id="disney"></section>
+          <MovieCarousel movies={topMovies.results} />
+        </section>
+
+        <section id="trending-tv" className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between">
+          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
+            <FiTrendingUp className="fill-dark-purple" />
+            <h1>Trending TV</h1>
+          </header>
+
+          <ShowCarousel shows={trendingTV.results} variant="half" withIndicators />
+        </section>
+
+        <section id="top-rated-tv" className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between">
+          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
+            <FiAirplay className="fill-dark-purple" />
+            <h1>Top Rated TV</h1>
+          </header>
+
+          <ShowCarousel shows={topRatedShows.results} />
+        </section>
       </div>
     </main>
   );
