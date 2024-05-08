@@ -1,8 +1,8 @@
 /****************************************************************
 * Data Formatter Functions to Facilitate Rendering in Tredning Movie Slide Component. 
 *****************************************************************/
-export const formatPosterUrl = (imgDataPath: string) => {
-    return 'https://image.tmdb.org/t/p/w500' + imgDataPath;
+export const formatPosterUrl = (imgDataPath: string, fileSize: 'w500' | 'original' = 'w500') => {
+    return `https://image.tmdb.org/t/p/${fileSize}` + imgDataPath;
 }
 
 export const formatMovieGenres = (genreIds: number[], movieGenres: { [id: number]: string }) => {
