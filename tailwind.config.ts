@@ -8,19 +8,19 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
-    colors: {
-      'bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
-      'bg-secondary': 'rgb(var(--bg-secondary) / <alpha-value>)',
-      'bg-peach': 'rgb(var(--bg-peach) / <alpha-value>)',
-      'bg-light-purple': 'rgb(var(--bg-light-purple) / <alpha-value>)',
-      'bg-purple': 'rgb(var(--bg-purple) / <alpha-value>)',
-      'dark-purple': 'rgb(var(--dark-purple) / <alpha-value>)',
-      'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
-      'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
-      'text-accent': 'rgb(var(--text-accent) / <alpha-value>)',
-      'card-border': 'rgb(var(--card-border) / <alpha-value>)'
-    },
     extend: {
+      colors: {
+        'bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
+        'bg-secondary': 'rgb(var(--bg-secondary) / <alpha-value>)',
+        'bg-peach': 'rgb(var(--bg-peach) / <alpha-value>)',
+        'bg-light-purple': 'rgb(var(--bg-light-purple) / <alpha-value>)',
+        'bg-purple': 'rgb(var(--bg-purple) / <alpha-value>)',
+        'dark-purple': 'rgb(var(--dark-purple) / <alpha-value>)',
+        'text-primary': 'rgb(var(--text-primary) / <alpha-value>)',
+        'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+        'text-accent': 'rgb(var(--text-accent) / <alpha-value>)',
+        'card-border': 'rgb(var(--card-border) / <alpha-value>)'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
