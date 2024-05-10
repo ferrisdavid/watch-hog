@@ -24,7 +24,7 @@ export default function MovieCarousel({ movies }: Props) {
       classNames={styles}
       className="grow"
       align="start"
-      slideSize={{ base: "100%", sm: "33.33333%", md: "12.5%" }}
+      slideSize={{ base: "100%", xs: "50%", sm: "33.33333%", md: "12.5%" }}
       slideGap={{ base: 0, sm: "md" }}
       controlsOffset='xs'
       controlSize={25}

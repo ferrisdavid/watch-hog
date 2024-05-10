@@ -20,7 +20,7 @@ interface Props extends CarouselProps {
 
 export default function ShowCarousel({ shows, variant = 'normal', ...rest }: Props) {
   const slideSizes = {
-    normal: { base: "100%", sm: "33.33333%", md: "12.5%" },
+    normal: { base: "100%", xs: "50%", sm: "33.33333%", md: "12.5%" },
     half: { base: "100%", sm: "50%", md: "50%" }
   };
 
