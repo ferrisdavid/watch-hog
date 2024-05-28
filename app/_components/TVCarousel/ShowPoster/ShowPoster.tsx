@@ -42,7 +42,7 @@ export default function ShowPoster({ show, imgType = "poster" }: Props) {
   };
 
   return (
-    <div className="relative transition-all">
+    <div className="relative transition-all hover:cursor-pointer">
       <div
         className={`${styles.overlay} absolute top-0 w-[100%] h-[100%] rounded`}
       />
