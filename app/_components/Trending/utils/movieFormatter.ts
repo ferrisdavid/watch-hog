@@ -1,7 +1,10 @@
 /****************************************************************
 * Data Formatter Functions to Facilitate Rendering in Tredning Movie Slide Component. 
 *****************************************************************/
-export const formatPosterUrl = (imgDataPath: string, fileSize: 'w500' | 'original' = 'w500') => {
+export const formatPosterUrl = (imgDataPath: string, fileSize: 'w500' | 'w1280' | 'original' = 'w500') => {
+    if (!imgDataPath)
+        return '';
+
     return `https://image.tmdb.org/t/p/${fileSize}` + imgDataPath;
 }
 
