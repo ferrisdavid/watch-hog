@@ -39,7 +39,7 @@ export default function MoviePoster({ movie, imgType = "poster" }: Props) {
   };
 
   return (
-    <div className="relative transition-all hover:cursor-pointer hover:scale-x-105 z-1">
+    <div className="relative transition-all hover:cursor-pointer">
       <div
         className={`${styles.overlay} absolute top-0 w-[100%] h-[100%] rounded`}
       />
