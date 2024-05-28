@@ -79,9 +79,9 @@ export default function Loading() {
           </header>
 
           <div id="pills" className="flex gap-2 items-center justify-evenly">
-            <QuickExplorePill provider="netflix" />
-            <QuickExplorePill provider="prime" />
-            <QuickExplorePill provider="disney" />
+            <QuickExplorePill provider="netflix" providerLogo="" />
+            <QuickExplorePill provider="prime" providerLogo=""/>
+            <QuickExplorePill provider="disney" providerLogo=""/>
           </div>
         </section>
 

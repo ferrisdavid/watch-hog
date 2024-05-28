@@ -6,131 +6,63 @@ import { prisma } from "@/lib/prisma";
 
 // Components.
 import Image from "next/image";
-import TrendingCarousel from "../_components/Trending/TrendingCarousel";
-import QuickExplorePill from "../_components/QuickExplore/QuickExplorePill";
-import MovieCarousel from "../_components/MovieCarousel/MovieCarousel";
-import ShowCarousel from "../_components/TVCarousel/ShowCarousel";
-
-// Data Fetch.
-import { getMovieGenreIDMap } from "../utils/movies/get-movie-genres";
-import { getTrendingMovies } from "../utils/movies/get-trending-movies";
-import { getNowPlaying } from "../utils/movies/get-now-playing";
-import { getTopMovies } from "../utils/movies/get-top-movies";
-import { getTrendingTV } from "../utils/tv/get-trending-tv";
-import { getTopTV } from "../utils/tv/get-top-tv";
-
-// Assets.
-import GlassBackdrop from "@/public/assets/Backdrop.png";
-
-// Icons.
-import { BsFire } from "react-icons/bs";
-import { RiMovie2Fill } from "react-icons/ri";
-import { FiAirplay, FiStar, FiTrendingUp, FiZap } from "react-icons/fi";
+import FeaturedCarousel from "../_components/Featured/FeaturedCarousel";
+import { Button } from "@mantine/core";
 
 export default async function Home() {
-  // Persistent Movie Genre Data.
-  const movieGenres = await getMovieGenreIDMap();
-
-  // Trending Movie Data.
-  const trendingMovies = await getTrendingMovies();
-
-  // Now Playing Movies.
-  const nowPlaying = await getNowPlaying();
-
-  // Top Movies.
-  const topMovies = await getTopMovies();
-
-  // Trending TV
-  const trendingTV = await getTrendingTV();
-
-  // Top Rated TV
-  const topRatedShows = await getTopTV();
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-5">
-      <div className="w-full p-5 flex flex-col gap-10">
+      <div className="p-5">
         <section
-          id="trending"
-          className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
+          id="hero"
+          className="py-2 px-10 flex gap-5 items-stretch justify-between"
         >
-          <header className="flex gap-3 items-center text-dark-purple text-3xl font-bold">
-            <BsFire />
-            <h1>Trending Today</h1>
-          </header>
+          <div className="flex flex-col gap-5">
+            <p className="text-dark-purple text-6xl font-medium mb-3">
+              The one stop info platform for all things cinema!
+            </p>
+            <p className="text-dark-purple text-2xl font-medium mb-3">
+              With Watchog quickly discover the best platform to watch all the
+              hottest titles, get recommendations curated to your interests and
+              platforms, and stay up to date with your friends viewing habits!
+            </p>
+            <p className="grow text-lg italic">
+              Search your favorite titles across multiple streaming services to
+              find the best place to watch. Connect with friends or like-minded
+              film enthusiasts to share your current and favorite films!
+            </p>
 
-          <div className="relative">
-            <Image
-              className="p-2 absolute w-full h-[100%] opacity-20"
-              src={GlassBackdrop}
-              alt="bubble backdrop"
-            />
-
-            <div className="flex flex-col bg-[#FFF5F9]/25 grow border-[1px] border-card-border border-opacity-[0.2] backdrop-blur-lg rounded-md shadow-md w-[100%] min-h-[500px] justify-between">
-              <TrendingCarousel
-                movies={trendingMovies.results}
-                genres={movieGenres}
-              />
+            <div className="flex gap-5">
+              <Button className="!bg-dark-purple !text-text-secondary !rounded-lg">EXPLORE TITLES</Button>
+              <Button className="!rounded-lg !text-text-primary" variant="white">FIND FRIENDS</Button>
             </div>
           </div>
-        </section>
 
-        <section
-          id="quick-filter"
-          className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
-        >
-          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
-            <FiZap className="fill-dark-purple" />
-            <h1>Quick Explore</h1>
-          </header>
-
-          <div id="pills" className="flex gap-2 items-center justify-evenly">
-            <QuickExplorePill provider="netflix" />
-            <QuickExplorePill provider="prime" />
-            <QuickExplorePill provider="disney" />
+          <div className="flex flex-col bg-bg-primary/20 grow border-[1px] border-bg-light-purple border-opacity-50 rounded-md shadow-sm w-[100%] min-w-[50%] justify-between">
+            <FeaturedCarousel
+              items={[
+                {
+                  title: "Kung Fu Panda 4",
+                  genre: "Animation/Action",
+                  date: "2024",
+                  imgURL:
+                    "https://m.media-amazon.com/images/M/MV5BZDY0YzI0OTctYjVhYy00MTVhLWE0NTgtYTRmYTBmOTE3YTViXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg",
+                },
+                {
+                  title: "Kung Fu Panda 3",
+                  genre: "Animation/Action",
+                  date: "2024",
+                },
+              ]}
+            />
           </div>
         </section>
 
-        <section
-          id="now-playing"
-          className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
-        >
-          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
-            <RiMovie2Fill className="fill-dark-purple" />
-            <h1>Now Playing</h1>
-          </header>
+        <section id="netflix"></section>
 
-          <MovieCarousel movies={nowPlaying.results} />
-        </section>
+        <section id="prime"></section>
 
-        <section
-          id="top-rated"
-          className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between"
-        >
-          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
-            <FiStar className="fill-dark-purple" />
-            <h1>Top Movies</h1>
-          </header>
-
-          <MovieCarousel movies={topMovies.results} />
-        </section>
-
-        <section id="trending-tv" className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between">
-          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
-            <FiTrendingUp className="fill-dark-purple" />
-            <h1>Trending TV</h1>
-          </header>
-
-          <ShowCarousel shows={trendingTV.results} variant="half" withIndicators />
-        </section>
-
-        <section id="top-rated-tv" className="py-2 px-5 flex flex-col gap-5 items-stretch justify-between">
-          <header className="flex gap-3 items-center text-dark-purple text-xl font-bold">
-            <FiAirplay className="fill-dark-purple" />
-            <h1>Top Rated TV</h1>
-          </header>
-
-          <ShowCarousel shows={topRatedShows.results} />
-        </section>
+        <section id="disney"></section>
       </div>
     </main>
   );
