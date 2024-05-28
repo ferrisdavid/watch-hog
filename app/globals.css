@@ -5,11 +5,11 @@
 @layer base {
   :root.light {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 255, 230, 230;
-    --background-end-rgb: 95, 67, 178;
+    --background-start-rgb: 30,33,36;
+    --background-end-rgb: 30,33,36;
 
     /* Custom Colors */
-    --bg-primary: 254 253 253;
+    --bg-primary: 30 33 36;
     --bg-secondary: 173 136 198;
     --bg-peach: 225 175 209;
     --bg-light-purple: 173 136 198;
@@ -55,8 +55,41 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
+    to bottom right,
+    rgba(var(--background-start-rgb)),
+    rgba(var(--background-end-rgb))
+  );
+  /* background: linear-gradient(
       to bottom right,
       rgba(var(--background-start-rgb), 75%) 25%,
       rgba(var(--background-end-rgb), 50%)
-    );
+    ); */
+}
+
+@property --scrollbar {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(30, 33, 36);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(116, 105, 182, 0.35);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(116, 105, 182, 0.35);
 }
